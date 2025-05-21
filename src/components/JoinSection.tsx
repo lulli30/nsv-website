@@ -1,9 +1,84 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { DiscordLogo, ServerIcon, SendHorizontal } from "./Icons";
 
 const JoinSection: React.FC = () => {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles: {
+      x: number;
+      y: number;
+      size: number;
+      speedX: number;
+      speedY: number;
+      color: string;
+    }[] = [];
+
+    const colors = ["#7B5BE5", "#9747FF", "#FFC108", "#242038", "#1A1823"];
+
+    const createParticle = () => {
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 5 + 1,
+        speedX: Math.random() * 1 - 0.5,
+        speedY: Math.random() * 1 - 0.5,
+        color: colors[Math.floor(Math.random() * colors.length)],
+      };
+    };
+
+    for (let i = 0; i < 75; i++) {
+      particles.push(createParticle());
+    }
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((particle) => {
+        ctx.fillStyle = particle.color + "30";
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fill();
+
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+
+        if (particle.x < 0 || particle.x > canvas.width) {
+          particle.speedX = -particle.speedX;
+        }
+
+        if (particle.y < 0 || particle.y > canvas.height) {
+          particle.speedY = -particle.speedY;
+        }
+      });
+
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    const handleResize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,12 +93,9 @@ const JoinSection: React.FC = () => {
   };
 
   return (
-    <section id="join" className="py-20 relative bg-[#1A1823] overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-[#7B5BE5] to-[#9747FF] rounded-full blur-[128px] transform -translate-x-1/2 -translate-y-1/2 opacity-20"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-r from-[#FFC108] to-[#FFD700] rounded-full blur-[128px] transform translate-x-1/2 translate-y-1/2 opacity-20"></div>
-      </div>
+    <section id="join" className="py-20 relative overflow-hidden">
+      <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full" />
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#1A1823]/90 to-[#1A1823]/70" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">

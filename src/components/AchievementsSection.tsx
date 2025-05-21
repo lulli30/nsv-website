@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Trophy, Users, Calendar, Award, Clock, Target } from "lucide-react";
 
 interface Stat {
@@ -59,11 +59,86 @@ const achievements: Achievement[] = [
 ];
 
 const AchievementsSection: React.FC = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles: {
+      x: number;
+      y: number;
+      size: number;
+      speedX: number;
+      speedY: number;
+      color: string;
+    }[] = [];
+
+    const colors = ["#7B5BE5", "#9747FF", "#FFC108", "#242038", "#1A1823"];
+
+    const createParticle = () => {
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 5 + 1,
+        speedX: Math.random() * 1 - 0.5,
+        speedY: Math.random() * 1 - 0.5,
+        color: colors[Math.floor(Math.random() * colors.length)],
+      };
+    };
+
+    for (let i = 0; i < 75; i++) {
+      particles.push(createParticle());
+    }
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((particle) => {
+        ctx.fillStyle = particle.color + "30";
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fill();
+
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+
+        if (particle.x < 0 || particle.x > canvas.width) {
+          particle.speedX = -particle.speedX;
+        }
+
+        if (particle.y < 0 || particle.y > canvas.height) {
+          particle.speedY = -particle.speedY;
+        }
+      });
+
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    const handleResize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <section id="achievements" className="py-20 bg-[#242038] relative">
-      {/* Background gradient effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#7B5BE5]/5 to-transparent pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#FFC108]/5 to-transparent pointer-events-none" />
+    <section id="achievements" className="py-20 relative">
+      <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full" />
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#1A1823]/90 to-[#1A1823]/70" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
@@ -83,7 +158,7 @@ const AchievementsSection: React.FC = () => {
           {stats.map((stat) => (
             <div
               key={stat.id}
-              className="bg-[#1A1823]/50 backdrop-blur-sm p-8 rounded-lg text-center transform transition-all hover:translate-y-[-8px] hover:shadow-[0_0_25px_rgba(123,91,229,0.2)] group"
+              className="bg-[#1A1823]/80 backdrop-blur-sm p-8 rounded-lg text-center transform transition-all hover:translate-y-[-8px] hover:shadow-[0_0_25px_rgba(123,91,229,0.3)] group border border-[#7B5BE5]/10"
             >
               <div className="flex justify-center mb-4 transform transition-transform group-hover:scale-110">
                 {stat.icon}
@@ -96,7 +171,7 @@ const AchievementsSection: React.FC = () => {
           ))}
         </div>
 
-        <div className="bg-[#1A1823]/50 backdrop-blur-sm rounded-xl p-8 md:p-10 shadow-lg">
+        <div className="bg-[#1A1823]/80 backdrop-blur-sm rounded-xl p-8 md:p-10 shadow-lg border border-[#7B5BE5]/10">
           <h3 className="text-2xl font-bold text-white mb-8 text-center">
             Notable Achievements
           </h3>
@@ -105,7 +180,7 @@ const AchievementsSection: React.FC = () => {
             {achievements.map((achievement) => (
               <div
                 key={achievement.id}
-                className="bg-[#242038]/50 p-6 rounded-lg transition-all hover:bg-[#7B5BE5]/10 hover:shadow-[0_0_25px_rgba(255,193,8,0.2)] group"
+                className="bg-[#1A1823]/50 p-6 rounded-lg transition-all hover:bg-[#7B5BE5]/20 hover:shadow-[0_0_25px_rgba(255,193,8,0.15)] group border border-[#FFC108]/10"
               >
                 <div className="flex items-start gap-4">
                   <div className="mt-1 transform transition-transform group-hover:scale-110">

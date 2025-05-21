@@ -18,12 +18,43 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const smoothScroll = (targetPosition: number, duration: number = 1000) => {
+    const startPosition = window.scrollY;
+    const distance = targetPosition - startPosition;
+    let startTime: number | null = null;
+
+    const animation = (currentTime: number) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+
+      // Easing function for smoother animation
+      const ease = (t: number) =>
+        t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+
+      window.scrollTo(0, startPosition + distance * ease(progress));
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      }
+    };
+
+    requestAnimationFrame(animation);
+  };
+
   const scrollToSection = (id: string) => {
     setIsOpen(false);
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const navbarHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - navbarHeight;
+      smoothScroll(offsetPosition);
     }
+  };
+
+  const scrollToTop = () => {
+    smoothScroll(0);
   };
 
   return (
@@ -37,10 +68,13 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <span className="flex items-center gap-3 text-2xl font-bold text-[#FFC108]">
+            <button
+              onClick={scrollToTop}
+              className="flex items-center gap-3 text-2xl font-bold text-[#FFC108] hover:text-[#FFC108]/90 transition-colors"
+            >
               <img src="/nsv-logo.png" alt="NSV Logo" className="w-8 h-8" />
               <span>Noble Soverign</span>
-            </span>
+            </button>
           </div>
 
           {/* Desktop menu */}

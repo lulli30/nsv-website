@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, Users, Trophy, Gamepad2, MessageSquare } from "lucide-react";
+import {
+  Menu,
+  X,
+  Users,
+  Trophy,
+  Gamepad2,
+  MessageSquare,
+  Info,
+} from "lucide-react";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -80,6 +88,11 @@ const Navbar: React.FC = () => {
           {/* Desktop menu */}
           <div className="hidden md:flex space-x-10">
             {[
+              {
+                name: "About",
+                icon: <Info className="h-5 w-5" />,
+                id: "about",
+              },
               { name: "Team", icon: <Users className="h-5 w-5" />, id: "team" },
               {
                 name: "Achievements",
@@ -128,6 +141,7 @@ const Navbar: React.FC = () => {
       <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
         <div className="px-4 pt-3 pb-4 space-y-2 bg-[#1A1823]/95 backdrop-blur-sm shadow-md">
           {[
+            { name: "About", icon: <Info className="h-5 w-5" />, id: "about" },
             { name: "Team", icon: <Users className="h-5 w-5" />, id: "team" },
             {
               name: "Achievements",

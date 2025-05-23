@@ -59,7 +59,7 @@ const hierarchy: TeamMember = {
   role: "Emperor",
   roleColor: "text-purple-400",
   bio: "Co-ruler and master of diplomacy.",
-  imageUrl: "/members/mcpfp-lullli.png",
+  imageUrl: "/members/staff/lullipfp.png",
   socialLinks: {},
   children: [
     // Emperor 2
@@ -69,7 +69,7 @@ const hierarchy: TeamMember = {
       role: "Emperor",
       roleColor: "text-purple-400",
       bio: "Supreme ruler and master strategist.",
-      imageUrl: "/api/placeholder/80/80",
+      imageUrl: "/members/staff/Rubics19pfp.png",
       socialLinks: {},
     },
     // Emperor 3
@@ -79,7 +79,7 @@ const hierarchy: TeamMember = {
       role: "Emperor",
       roleColor: "text-purple-400",
       bio: "Supreme ruler of the realm. Oversees all server operations and maintains peace.",
-      imageUrl: "/api/placeholder/80/80",
+      imageUrl: "/members/staff/beaniepfp.png",
       socialLinks: {
         twitter: "https://twitter.com",
         github: "https://github.com",
@@ -92,25 +92,25 @@ const hierarchy: TeamMember = {
 const nobles: TeamMember[] = [
   {
     id: 201,
-    name: "Noble Blaze",
+    name: "Angii_werewolves",
     role: "Noble",
     roleColor: "text-green-300",
     bio: "Trusted advisor to Emperor Blaze.",
-    imageUrl: "/api/placeholder/64/64",
+    imageUrl: "/members/staff/angiipfp.png",
     socialLinks: {},
   },
   {
     id: 202,
-    name: "Noble Cyra",
+    name: "KODU45YT",
     role: "Noble",
     roleColor: "text-green-300",
     bio: "Trusted advisor to Emperor Cyra.",
-    imageUrl: "/api/placeholder/64/64",
+    imageUrl: "/members/staff/kodupfp.png",
     socialLinks: {},
   },
   {
     id: 203,
-    name: "Noble Alex",
+    name: "n0bbi",
     role: "Noble",
     roleColor: "text-green-300",
     bio: "Trusted advisor to Emperor Alex.",
@@ -119,16 +119,7 @@ const nobles: TeamMember[] = [
   },
   {
     id: 204,
-    name: "Noble Phoenix",
-    role: "Noble",
-    roleColor: "text-green-300",
-    bio: "Trusted advisor to the realm.",
-    imageUrl: "/api/placeholder/64/64",
-    socialLinks: {},
-  },
-  {
-    id: 205,
-    name: "Noble Storm",
+    name: "PANDESAL",
     role: "Noble",
     roleColor: "text-green-300",
     bio: "Trusted advisor to the realm.",
@@ -152,21 +143,30 @@ const sliderMembers: TeamMember[] = [
   // Monarchs of Creation
   ...Array.from({ length: 1 }, (_, i) => ({
     id: 400 + i,
-    name: `Monarch of Creation ${i + 1}`,
+    name: `MissKonayakapmo`,
     role: "Monarch of Creation",
     roleColor: "text-lime-400",
     bio: "Oversees all building projects and creative endeavors.",
-    imageUrl: "/api/placeholder/64/64",
+    imageUrl: "/members/staff/misskonayakapmopfp.png",
     socialLinks: {},
   })),
   // Squires
-  ...Array.from({ length: 3 }, (_, i) => ({
+  ...Array.from({ length: 1 }, (_, i) => ({
     id: 500 + i,
-    name: `Squire ${i + 1}`,
+    name: `Quad ${i + 1}`,
     role: "Squire",
     roleColor: "text-cyan-300",
     bio: `Rising star in the realm #${i + 1}.`,
-    imageUrl: "/api/placeholder/64/64",
+    imageUrl: "/members/staff/quadpfp.png",
+    socialLinks: {},
+  })),
+  ...Array.from({ length: 1 }, (_, i) => ({
+    id: 600 + i,
+    name: `Quad ${i + 1}`,
+    role: "Squire",
+    roleColor: "text-cyan-300",
+    bio: `Rising star in the realm #${i + 1}.`,
+    imageUrl: "/members/staff/quadpfp.png",
     socialLinks: {},
   })),
 ];
@@ -175,11 +175,11 @@ const sliderMembers: TeamMember[] = [
 const tableMembers: TeamMember[] = [
   {
     id: 7,
-    name: "Noah Knight",
+    name: "Diirk",
     role: "Knight",
     roleColor: "text-gray-300",
-    bio: "Protects the realm and its citizens.",
-    imageUrl: "/api/placeholder/64/64",
+    bio: "PVP player.",
+    imageUrl: "/members/comm-mem/diirkpfp.png",
     socialLinks: {
       twitter: "https://twitter.com",
     },
@@ -208,15 +208,24 @@ const tableMembers: TeamMember[] = [
   },
   {
     id: 9,
-    name: "Steve Player",
+    name: "HINOMORISHIHO277",
     role: "Member",
     roleColor: "text-orange-600",
     bio: "Active community member.",
-    imageUrl: "/api/placeholder/64/64",
+    imageUrl: "/members/comm-mem/HINOMORISHIHO277pfp.png",
     socialLinks: {},
   },
   {
     id: 10,
+    name: "KazueKyoto",
+    role: "Member",
+    roleColor: "text-orange-600",
+    bio: "Active community member.",
+    imageUrl: "/members/comm-mem/kazuekyotopfp.png",
+    socialLinks: {},
+  },
+  {
+    id: 11,
     name: "Bob Minion",
     role: "Minion",
     roleColor: "text-yellow-300",
@@ -231,23 +240,23 @@ const MemberCard: React.FC<{ member: TeamMember; isEmperor?: boolean }> = ({
   isEmperor = false,
 }) => (
   <div
-    className={`group relative flex flex-col items-center bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-xl p-4 shadow-xl transform transition-all duration-500 hover:scale-105 hover:-translate-y-1 ${
+    className={`group relative flex flex-col items-center bg-[#242038]/50 backdrop-blur-sm rounded-xl p-4 shadow-xl transform transition-all duration-500 hover:scale-105 hover:-translate-y-1 ${
       isEmperor
-        ? "w-56 border-2 border-purple-500/50 shadow-purple-500/20 hover:shadow-purple-500/40"
-        : "w-44 border border-slate-700/50 hover:border-purple-500/50 hover:shadow-purple-500/20"
+        ? "w-56 border-2 border-[#7B5BE5]/50 shadow-[#7B5BE5]/20 hover:shadow-[#7B5BE5]/40"
+        : "w-44 border border-[#7B5BE5]/30 hover:border-[#FFC108]/50 hover:shadow-[#FFC108]/20"
     }`}
   >
     {/* Crown decoration for Emperor */}
     {isEmperor && (
       <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-        <div className="bg-gradient-to-r from-purple-500 to-yellow-400 p-1.5 rounded-full shadow-lg">
+        <div className="bg-gradient-to-r from-[#7B5BE5] to-[#FFC108] p-1.5 rounded-full shadow-lg">
           <Crown className="h-4 w-4 text-white" />
         </div>
       </div>
     )}
 
     {/* Glowing effect */}
-    <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 via-blue-600/10 to-purple-600/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    <div className="absolute inset-0 bg-gradient-to-r from-[#7B5BE5]/10 via-[#FFC108]/10 to-[#7B5BE5]/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
     {/* Avatar with enhanced styling */}
     <div className={`relative mb-2 ${isEmperor ? "h-16 w-16" : "h-12 w-12"}`}>
@@ -255,7 +264,7 @@ const MemberCard: React.FC<{ member: TeamMember; isEmperor?: boolean }> = ({
         className={`${
           isEmperor ? "h-16 w-16" : "h-12 w-12"
         } rounded-full overflow-hidden border-2 ${
-          isEmperor ? "border-purple-400" : "border-slate-600"
+          isEmperor ? "border-[#7B5BE5]" : "border-[#FFC108]/50"
         } shadow-lg relative`}
       >
         <img
@@ -264,15 +273,15 @@ const MemberCard: React.FC<{ member: TeamMember; isEmperor?: boolean }> = ({
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
         />
         {/* Avatar glow effect */}
-        <div className="absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#7B5BE5]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
       {/* Status indicator */}
-      <div className="absolute -bottom-1 -right-1 h-3 w-3 bg-green-500 rounded-full border border-slate-800 shadow-sm" />
+      <div className="absolute -bottom-1 -right-1 h-3 w-3 bg-[#FFC108] rounded-full border border-[#1A1823] shadow-sm" />
     </div>
 
     {/* Name */}
     <h3
-      className={`font-bold mb-1 text-center text-white group-hover:text-purple-300 transition-colors duration-300 ${
+      className={`font-bold mb-1 text-center text-white group-hover:text-[#7B5BE5] transition-colors duration-300 ${
         isEmperor ? "text-lg" : "text-base"
       }`}
     >
@@ -307,7 +316,7 @@ const MemberCard: React.FC<{ member: TeamMember; isEmperor?: boolean }> = ({
           href={member.socialLinks.twitter}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-blue-400 transition-all duration-300 p-1 rounded-full hover:bg-blue-400/10 transform hover:scale-110"
+          className="text-gray-400 hover:text-[#7B5BE5] transition-all duration-300 p-1 rounded-full hover:bg-[#7B5BE5]/10 transform hover:scale-110"
           aria-label="Twitter"
         >
           <Twitter className="h-3 w-3" />
@@ -318,7 +327,7 @@ const MemberCard: React.FC<{ member: TeamMember; isEmperor?: boolean }> = ({
           href={member.socialLinks.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-purple-400 transition-all duration-300 p-1 rounded-full hover:bg-purple-400/10 transform hover:scale-110"
+          className="text-gray-400 hover:text-[#FFC108] transition-all duration-300 p-1 rounded-full hover:bg-[#FFC108]/10 transform hover:scale-110"
           aria-label="GitHub"
         >
           <Github className="h-3 w-3" />
@@ -329,7 +338,7 @@ const MemberCard: React.FC<{ member: TeamMember; isEmperor?: boolean }> = ({
           href={member.socialLinks.website}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-yellow-400 transition-all duration-300 p-1 rounded-full hover:bg-yellow-400/10 transform hover:scale-110"
+          className="text-gray-400 hover:text-[#7B5BE5] transition-all duration-300 p-1 rounded-full hover:bg-[#7B5BE5]/10 transform hover:scale-110"
           aria-label="Website"
         >
           <Globe className="h-3 w-3" />
@@ -410,22 +419,11 @@ const TeamSection: React.FC = () => {
   return (
     <section
       id="team"
-      className="py-12 lg:py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative min-h-screen overflow-hidden"
+      className="py-12 lg:py-20 bg-[#1A1823] text-white relative min-h-screen overflow-hidden"
     >
-      {/* Enhanced background effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-yellow-600/20" />
-      <div className="absolute inset-0 bg-gradient-to-tl from-blue-900/15 via-transparent to-purple-900/15" />
-
-      {/* Animated background elements */}
-      <div className="absolute top-20 left-20 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
-      <div
-        className="absolute top-1/2 right-20 w-40 h-40 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"
-        style={{ animationDelay: "1s" }}
-      />
-      <div
-        className="absolute bottom-20 left-1/4 w-24 h-24 bg-blue-500/10 rounded-full blur-3xl animate-pulse"
-        style={{ animationDelay: "2s" }}
-      />
+      {/* Background gradient effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#7B5BE5]/5 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#FFC108]/5 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Enhanced header */}
@@ -478,20 +476,20 @@ const TeamSection: React.FC = () => {
         </div>
 
         {/* Slider section */}
-        <div className="mt-20">
+        <div className="mt-16">
           <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-yellow-400 text-transparent bg-clip-text">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#7B5BE5] to-[#FFC108] text-transparent bg-clip-text">
               Specialized Roles
             </h3>
-            <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-yellow-400 mx-auto mb-6 rounded-full" />
+            <div className="w-20 h-1 bg-gradient-to-r from-[#7B5BE5] to-[#FFC108] mx-auto mb-6 rounded-full" />
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
               Our specialized team members who excel in their respective roles
             </p>
           </div>
 
-          <div className="relative">
+          <div className="relative mt-8">
             {/* Slider container */}
-            <div className="overflow-hidden">
+            <div className="overflow-hidden py-8">
               <div
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{
@@ -501,8 +499,10 @@ const TeamSection: React.FC = () => {
                 }}
               >
                 {sliderMembers.map((member) => (
-                  <div key={member.id} className="w-1/4 flex-shrink-0 px-4">
-                    <MemberCard member={member} />
+                  <div key={member.id} className="w-1/4 flex-shrink-0 px-6">
+                    <div className="transform transition-transform duration-300 hover:scale-105 hover:-translate-y-1">
+                      <MemberCard member={member} />
+                    </div>
                   </div>
                 ))}
               </div>
@@ -511,13 +511,13 @@ const TeamSection: React.FC = () => {
             {/* Navigation buttons */}
             <button
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-gradient-to-r from-purple-600/80 to-purple-600/40 p-2 rounded-full shadow-lg hover:from-purple-600 hover:to-purple-600 transition-all duration-300"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-gradient-to-r from-[#7B5BE5]/80 to-[#FFC108]/40 p-2 rounded-full shadow-lg hover:from-[#7B5BE5] hover:to-[#FFC108] transition-all duration-300"
             >
               <ChevronLeft className="h-6 w-6 text-white" />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-gradient-to-l from-purple-600/80 to-purple-600/40 p-2 rounded-full shadow-lg hover:from-purple-600 hover:to-purple-600 transition-all duration-300"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-gradient-to-l from-[#7B5BE5]/80 to-[#FFC108]/40 p-2 rounded-full shadow-lg hover:from-[#7B5BE5] hover:to-[#FFC108] transition-all duration-300"
             >
               <ChevronRight className="h-6 w-6 text-white" />
             </button>
@@ -536,10 +536,10 @@ const TeamSection: React.FC = () => {
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl shadow-2xl border border-slate-700/50">
-            <table className="min-w-full bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm overflow-hidden">
+          <div className="overflow-x-auto rounded-2xl shadow-2xl border border-[#7B5BE5]/20">
+            <table className="min-w-full bg-[#242038]/50 backdrop-blur-sm overflow-hidden">
               <thead>
-                <tr className="bg-gradient-to-r from-slate-700/50 to-slate-800/50 border-b border-slate-600/50">
+                <tr className="bg-gradient-to-r from-[#7B5BE5]/20 to-[#FFC108]/20 border-b border-[#7B5BE5]/30">
                   <th className="px-6 py-4 text-left text-gray-300 font-semibold text-sm uppercase tracking-wider">
                     Avatar
                   </th>
@@ -561,8 +561,8 @@ const TeamSection: React.FC = () => {
                 {tableMembers.map((member, index) => (
                   <tr
                     key={member.id}
-                    className={`border-b border-slate-700/30 hover:bg-gradient-to-r hover:from-slate-700/30 hover:to-slate-800/30 transition-all duration-300 ${
-                      index % 2 === 0 ? "bg-slate-800/20" : "bg-slate-900/20"
+                    className={`border-b border-[#7B5BE5]/10 hover:bg-gradient-to-r hover:from-[#7B5BE5]/10 hover:to-[#FFC108]/10 transition-all duration-300 ${
+                      index % 2 === 0 ? "bg-[#242038]/30" : "bg-[#1A1823]/30"
                     }`}
                   >
                     <td className="px-6 py-4">
@@ -570,9 +570,9 @@ const TeamSection: React.FC = () => {
                         <img
                           src={member.imageUrl}
                           alt={member.name}
-                          className="h-12 w-12 rounded-full object-cover border-2 border-slate-600 shadow-lg hover:scale-110 transition-transform duration-300"
+                          className="h-12 w-12 rounded-full object-cover border-2 border-[#7B5BE5]/30 shadow-lg hover:scale-110 transition-transform duration-300"
                         />
-                        <div className="absolute -bottom-1 -right-1 h-3 w-3 bg-green-500 rounded-full border border-slate-800" />
+                        <div className="absolute -bottom-1 -right-1 h-3 w-3 bg-[#FFC108] rounded-full border border-[#1A1823]" />
                       </div>
                     </td>
                     <td className="px-6 py-4 font-semibold text-white text-lg">
@@ -594,7 +594,7 @@ const TeamSection: React.FC = () => {
                             href={member.socialLinks.twitter}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-gray-400 hover:text-blue-400 transition-colors p-1 rounded hover:bg-blue-400/10"
+                            className="text-gray-400 hover:text-[#7B5BE5] transition-colors p-1 rounded hover:bg-[#7B5BE5]/10"
                             aria-label="Twitter"
                           >
                             <Twitter className="h-4 w-4" />
@@ -605,7 +605,7 @@ const TeamSection: React.FC = () => {
                             href={member.socialLinks.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-gray-400 hover:text-purple-400 transition-colors p-1 rounded hover:bg-purple-400/10"
+                            className="text-gray-400 hover:text-[#FFC108] transition-colors p-1 rounded hover:bg-[#FFC108]/10"
                             aria-label="GitHub"
                           >
                             <Github className="h-4 w-4" />
@@ -616,7 +616,7 @@ const TeamSection: React.FC = () => {
                             href={member.socialLinks.website}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-gray-400 hover:text-yellow-400 transition-colors p-1 rounded hover:bg-yellow-400/10"
+                            className="text-gray-400 hover:text-[#7B5BE5] transition-colors p-1 rounded hover:bg-[#7B5BE5]/10"
                             aria-label="Website"
                           >
                             <Globe className="h-4 w-4" />

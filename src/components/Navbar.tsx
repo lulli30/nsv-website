@@ -86,34 +86,34 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop menu */}
-          <div className="hidden md:flex space-x-10">
+          <div className="hidden md:flex space-x-6">
             {[
               {
                 name: "About",
-                icon: <Info className="h-5 w-5" />,
+                icon: <Info className="h-4 w-4" />,
                 id: "about",
               },
-              { name: "Team", icon: <Users className="h-5 w-5" />, id: "team" },
+              { name: "Team", icon: <Users className="h-4 w-4" />, id: "team" },
               {
                 name: "Achievements",
-                icon: <Trophy className="h-5 w-5" />,
+                icon: <Trophy className="h-4 w-4" />,
                 id: "achievements",
               },
               {
                 name: "Features",
-                icon: <Gamepad2 className="h-5 w-5" />,
+                icon: <Gamepad2 className="h-4 w-4" />,
                 id: "features",
               },
               {
                 name: "Join Us",
-                icon: <MessageSquare className="h-5 w-5" />,
+                icon: <MessageSquare className="h-4 w-4" />,
                 id: "join",
               },
             ].map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.id)}
-                className="flex items-center gap-2 text-gray-200 hover:text-[#7B5BE5] px-3 py-1 rounded-md transition-all font-medium text-lg"
+                className="flex items-center gap-1.5 text-gray-200 hover:text-[#7B5BE5] px-2 py-1 rounded-md transition-all font-medium text-base"
               >
                 {item.icon}
                 {item.name}
@@ -141,28 +141,28 @@ const Navbar: React.FC = () => {
       <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
         <div className="px-4 pt-3 pb-4 space-y-2 bg-[#1A1823]/95 backdrop-blur-sm shadow-md">
           {[
-            { name: "About", icon: <Info className="h-5 w-5" />, id: "about" },
-            { name: "Team", icon: <Users className="h-5 w-5" />, id: "team" },
+            { name: "About", icon: <Info className="h-4 w-4" />, id: "about" },
+            { name: "Team", icon: <Users className="h-4 w-4" />, id: "team" },
             {
               name: "Achievements",
-              icon: <Trophy className="h-5 w-5" />,
+              icon: <Trophy className="h-4 w-4" />,
               id: "achievements",
             },
             {
               name: "Features",
-              icon: <Gamepad2 className="h-5 w-5" />,
+              icon: <Gamepad2 className="h-4 w-4" />,
               id: "features",
             },
             {
               name: "Join Us",
-              icon: <MessageSquare className="h-5 w-5" />,
+              icon: <MessageSquare className="h-4 w-4" />,
               id: "join",
             },
           ].map((item) => (
             <button
               key={item.name}
               onClick={() => scrollToSection(item.id)}
-              className="flex items-center gap-3 w-full px-4 py-3 text-lg font-medium text-gray-200 hover:text-[#7B5BE5] hover:bg-[#FFC108]/10 rounded-md transition-all"
+              className="flex items-center gap-2 w-full px-3 py-2 text-base font-medium text-gray-200 hover:text-[#7B5BE5] hover:bg-[#FFC108]/10 rounded-md transition-all"
             >
               {item.icon}
               {item.name}

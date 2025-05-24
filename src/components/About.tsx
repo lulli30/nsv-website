@@ -51,18 +51,25 @@ const About: React.FC = () => {
               </h3>
             </div>
             <p className="text-gray-300 leading-relaxed text-lg">
-              Noble Sovereign (NSV) was founded with the vision of creating a
-              unique and engaging community for gamers and enthusiasts alike.
-              Our journey began in 2020, with a small group of dedicated
-              individuals who shared a passion for gaming and community
-              building. Over the years, NSV has grown into a vibrant community,
-              hosting numerous events and fostering friendships across the
-              globe.
+              Noble Sovereign (NSV) originated from UNR, a thriving Minecraft
+              community group. We split due to internal strife and formed NSV.
+              Creating a distinctive and engaging community for gamers and
+              enthusiasts is our revitalized vision. Our adventure began in 2023
+              with a small group of devoted individuals that had a passion for
+              gaming and community development. We initially settled in
+              Bayanihan SMP, a Philippine Minecraft server, where we formed
+              lasting bonds and had amazing experiences. After Bayanihan SMP
+              closed, our community moved to Yakisova SMP, maintaining our
+              togetherness and shared adventures. Over time, NSV has become a
+              vibrant community, conducting events and establishing friendships
+              within the gaming community.
             </p>
             <div className="mt-6 flex items-center text-[#FFC108] font-medium">
-              <span>Est. 2020</span>
+              <span>Est. 2023</span>
               <div className="w-2 h-2 bg-[#FFC108] rounded-full mx-3"></div>
-              <span>Global Community</span>
+              <span>Minecraft Community</span>
+              <div className="w-2 h-2 bg-[#FFC108] rounded-full mx-3"></div>
+              <span>Yakisova SMP</span>
             </div>
           </div>
 
@@ -89,19 +96,39 @@ const About: React.FC = () => {
               </h3>
             </div>
             <p className="text-gray-300 leading-relaxed mb-6">
-              Our servers are equipped with the latest technology to ensure a
-              smooth and enjoyable experience for all members. We offer a
-              variety of game modes and events, catering to different interests
-              and skill levels.
+              Join us on Yakisova SMP, our current Minecraft home where we
+              build, explore, and create memories together. The server offers a
+              welcoming environment for both new and experienced players.
             </p>
-            <div className="space-y-2 text-sm">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between bg-[#242038] p-3 rounded-lg">
+                <span className="text-[#FFC108] font-mono">
+                  yakisova.net:20825
+                </span>
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText("yakisova.net:20825");
+                    const btn = document.getElementById("copyBtn");
+                    if (btn) {
+                      btn.textContent = "Copied!";
+                      setTimeout(() => {
+                        btn.textContent = "Copy";
+                      }, 2000);
+                    }
+                  }}
+                  id="copyBtn"
+                  className="px-3 py-1 bg-[#7B5BE5] hover:bg-[#6a4bc4] text-white rounded-md transition-colors duration-300 text-sm"
+                >
+                  Copy
+                </button>
+              </div>
               <div className="flex items-center text-green-400">
                 <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
-                <span>24/7 Uptime</span>
+                <span>Active Community</span>
               </div>
               <div className="flex items-center text-blue-400">
                 <div className="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
-                <span>Multi-Game Support</span>
+                <span>Survival SMP</span>
               </div>
               <div className="flex items-center text-purple-400">
                 <div className="w-2 h-2 bg-purple-400 rounded-full mr-2"></div>

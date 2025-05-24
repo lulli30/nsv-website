@@ -80,8 +80,12 @@ const Navbar: React.FC = () => {
               onClick={scrollToTop}
               className="flex items-center gap-3 text-2xl font-bold text-[#FFC108] hover:text-[#FFC108]/90 transition-colors"
             >
-              <img src="/nsv-logo.png" alt="NSV Logo" className="w-8 h-8" />
-              <span>Noble Soverign</span>
+              <img
+                src="/nsv-logo.png"
+                alt="NSV Logo"
+                className="w-10 h-10 md:w-12 md:h-12"
+              />
+              <span className="hidden md:inline mt-3">Noble Soverign</span>
             </button>
           </div>
 

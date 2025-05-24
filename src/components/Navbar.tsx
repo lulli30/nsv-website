@@ -142,7 +142,13 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile menu */}
-      <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
+      <div
+        className={`md:hidden absolute top-full left-0 w-full transform transition-all duration-300 ease-in-out origin-top ${
+          isOpen
+            ? "opacity-100 scale-y-100"
+            : "opacity-0 scale-y-0 pointer-events-none"
+        }`}
+      >
         <div className="px-4 pt-3 pb-4 space-y-2 bg-[#1A1823]/95 backdrop-blur-sm shadow-md">
           {[
             { name: "About", icon: <Info className="h-4 w-4" />, id: "about" },

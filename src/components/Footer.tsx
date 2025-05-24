@@ -159,7 +159,7 @@ const Footer: React.FC = () => {
           <div className="flex justify-center items-center gap-1">
             <span>Made with</span>
             <Heart className="h-4 w-4 text-[#7B5BE5] fill-[#7B5BE5]" />
-            <span>by Noble Soverign Team</span>
+            <span>by lulli</span>
           </div>
           <p className="mt-2">
             © {new Date().getFullYear()} Noble Soverign. All rights reserved.

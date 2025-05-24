@@ -133,7 +133,7 @@ const sliderMembers: TeamMember[] = [
   // Monarchs of Battle
   ...Array.from({ length: 1 }, (_, i) => ({
     id: 300 + i,
-    name: `Monarch of Battle ${i + 1}`,
+    name: `Fakali`,
     role: "Monarch of Battle",
     roleColor: "text-pink-400",
     bio: "Leads all combat operations and tournaments.",
@@ -226,6 +226,15 @@ const tableMembers: TeamMember[] = [
   },
   {
     id: 11,
+    name: "Theywantkayll",
+    role: "Member",
+    roleColor: "text-orange-600",
+    bio: "Active community member.",
+    imageUrl: "/members/comm-mem/theywantkayllpfp.png",
+    socialLinks: {},
+  },
+  {
+    id: 12,
     name: "Bob Minion",
     role: "Minion",
     roleColor: "text-yellow-300",
@@ -477,17 +486,17 @@ const TeamSection: React.FC = () => {
 
         {/* Slider section */}
         <div className="mt-16">
-          <div className="text-center mb-12">
+          <div className="text-center mb-3">
             <h3 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-[#7B5BE5] to-[#FFC108] text-transparent bg-clip-text">
               Specialized Roles
             </h3>
-            <div className="w-20 h-1 bg-gradient-to-r from-[#7B5BE5] to-[#FFC108] mx-auto mb-6 rounded-full" />
+            <div className="w-20 h-1 bg-gradient-to-r from-[#7B5BE5] to-[#FFC108] mx-auto mb-4 rounded-full" />
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
               Our specialized team members who excel in their respective roles
             </p>
           </div>
 
-          <div className="relative mt-8">
+          <div className="relative">
             {/* Slider container */}
             <div className="overflow-hidden py-8">
               <div

@@ -26,28 +26,8 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const smoothScroll = (targetPosition: number, duration: number = 1000) => {
-    const startPosition = window.scrollY;
-    const distance = targetPosition - startPosition;
-    let startTime: number | null = null;
-
-    const animation = (currentTime: number) => {
-      if (startTime === null) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1);
-
-      // Easing function for smoother animation
-      const ease = (t: number) =>
-        t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-
-      window.scrollTo(0, startPosition + distance * ease(progress));
-
-      if (timeElapsed < duration) {
-        requestAnimationFrame(animation);
-      }
-    };
-
-    requestAnimationFrame(animation);
+  const smoothScroll = (targetPosition: number) => {
+    window.scrollTo({ top: targetPosition, behavior: "smooth" });
   };
 
   const scrollToSection = (id: string) => {
